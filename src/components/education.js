@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Display from "./display";
 
 class EducationDetails extends Component {
   constructor() {
@@ -9,6 +10,7 @@ class EducationDetails extends Component {
       courseName: "",
       courseStartDate: "",
       courseEndDate: "",
+      eduInfor: "",
     };
   }
 
@@ -19,56 +21,61 @@ class EducationDetails extends Component {
     });
   };
 
+  onSubmitForm = (e) => {
+    e.preventDefault();
+    this.setState({
+      eduInfor: { ...this.state, [e.target.name]: e.target.value },
+    });
+  };
+
   render() {
     const { institute, courseName, courseStartDate, courseEndDate } =
       this.state;
-    const educationInfor = {
-      institute,
-      courseName,
-      courseStartDate,
-      courseEndDate,
-    };
 
     return (
-      <fieldset>
-        <legend>Education</legend>
-        <div>
-          <label>Institute</label>
-          <input
-            type="text"
-            name="institute"
-            onChange={this.handleChange}
-            value={institute}
-          />
-        </div>
-        <div>
-          <label>Course name</label>
-          <input
-            type="text"
-            name="courseName"
-            onChange={this.handleChange}
-            value={courseName}
-          />
-        </div>
-        <div>
-          <label>Course start date</label>
-          <input
-            type="date"
-            name="courseStartDate"
-            onChange={this.handleChange}
-            value={courseStartDate}
-          />
-        </div>
-        <div>
-          <label>Course end date</label>
-          <input
-            type="date"
-            name="courseEndDate"
-            onChange={this.handleChange}
-            value={courseEndDate}
-          />
-        </div>
-      </fieldset>
+      <form onSubmit={this.onSubmitForm}>
+        {" "}
+        <fieldset>
+          <legend>Education</legend>
+          <div>
+            <label>Institute</label>
+            <input
+              type="text"
+              name="institute"
+              onChange={this.handleChange}
+              value={institute}
+            />
+          </div>
+          <div>
+            <label>Course name</label>
+            <input
+              type="text"
+              name="courseName"
+              onChange={this.handleChange}
+              value={courseName}
+            />
+          </div>
+          <div>
+            <label>Course start date</label>
+            <input
+              type="date"
+              name="courseStartDate"
+              onChange={this.handleChange}
+              value={courseStartDate}
+            />
+          </div>
+          <div>
+            <label>Course end date</label>
+            <input
+              type="date"
+              name="courseEndDate"
+              onChange={this.handleChange}
+              value={courseEndDate}
+            />
+          </div>
+        </fieldset>
+        <button type="submit">Add Education Information</button>
+      </form>
     );
   }
 }
