@@ -1,15 +1,15 @@
 import React, { Component } from "react";
 
-class Education extends Component {
+class EducationDetails extends Component {
   constructor() {
     super();
 
-    this.setState({
+    this.state = {
       institute: "",
       courseName: "",
       courseStartDate: "",
       courseEndDate: "",
-    });
+    };
   }
 
   handleChange = (e) => {
@@ -22,6 +22,12 @@ class Education extends Component {
   render() {
     const { institute, courseName, courseStartDate, courseEndDate } =
       this.state;
+    const educationInfor = {
+      institute,
+      courseName,
+      courseStartDate,
+      courseEndDate,
+    };
 
     return (
       <fieldset>
@@ -67,4 +73,4 @@ class Education extends Component {
   }
 }
 
-export default Education;
+export default EducationDetails;

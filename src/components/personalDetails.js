@@ -21,7 +21,7 @@ class GeneralInformation extends Component {
 
   render() {
     const { name, surname, email, phone } = this.state;
-    const genInfor = { name, surname, email, phone };
+    const generalInfor = { name, surname, email, phone };
     return (
       <fieldset>
         <legend>Personal Details</legend>

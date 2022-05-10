@@ -23,6 +23,13 @@ class WorkExperience extends Component {
   render() {
     const { companyName, jobTitle, jobTasks, jobStartDate, jobEndDate } =
       this.state;
+    const workInfor = {
+      companyName,
+      jobTitle,
+      jobTasks,
+      jobStartDate,
+      jobEndDate,
+    };
 
     return (
       <fieldset>
