@@ -26,6 +26,24 @@ class EducationDetails extends Component {
     this.setState({
       eduInfor: { ...this.state, [e.target.name]: e.target.value },
     });
+    this.setState({
+      institute: "",
+      courseName: "",
+      courseStartDate: "",
+      courseEndDate: "",
+      eduInfor: "",
+    });
+  };
+
+  onEdit = () => {
+    const { eduInfor } = this.state;
+
+    this.setState({
+      institute: eduInfor.institute,
+      courseName: eduInfor.courseName,
+      courseStartDate: eduInfor.courseStartDate,
+      courseEndDate: eduInfor.courseEndDate,
+    });
   };
 
   render() {
@@ -74,6 +92,7 @@ class EducationDetails extends Component {
             />
           </div>
         </fieldset>
+        <button onClick={this.onEdit}>Edit</button>
         <button type="submit">Add Education Information</button>
       </form>
     );

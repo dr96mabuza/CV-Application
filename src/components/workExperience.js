@@ -27,6 +27,26 @@ class WorkExperience extends Component {
     this.setState({
       jobInfor: { ...this.state, [e.target.name]: e.target.value },
     });
+    this.setState({
+      companyName: "",
+      jobTitle: "",
+      jobTasks: "",
+      jobStartDate: "",
+      jobEndDate: "",
+      jobInfor: "",
+    });
+  };
+
+  onEdit = () => {
+    const { jobInfor } = this.state;
+
+    this.setState({
+      companyName: jobInfor.companyName,
+      jobTitle: jobInfor.jobTitle,
+      jobTasks: jobInfor.jobTasks,
+      jobStartDate: jobInfor.jobStartDate,
+      jobEndDate: jobInfor.jobEndDate,
+    });
   };
 
   render() {
@@ -84,6 +104,7 @@ class WorkExperience extends Component {
             />
           </div>
         </fieldset>
+        <button onClick={this.onEdit}>Edit</button>
         <button type="submit">Add Employment History</button>
       </form>
     );

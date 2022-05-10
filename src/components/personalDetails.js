@@ -26,6 +26,24 @@ class GeneralInformation extends Component {
     this.setState({
       generalInfor: { ...this.state, [e.target.name]: e.target.value },
     });
+    this.setState({
+      name: "",
+      surname: "",
+      email: "",
+      phone: "",
+      generalInfor: "",
+    });
+  };
+
+  onEdit = () => {
+    const { generalInfor } = this.state;
+
+    this.setState({
+      name: generalInfor.name,
+      surname: generalInfor.surname,
+      email: generalInfor.email,
+      phone: generalInfor.phone,
+    });
   };
 
   render() {
@@ -72,6 +90,7 @@ class GeneralInformation extends Component {
             />
           </div>
         </fieldset>
+        <button onClick={this.onEdit}>Edit</button>
         <button type="submit">Add Personal Information</button>
       </form>
     );
