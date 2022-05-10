@@ -14,11 +14,14 @@ class Form extends Component {
       courseName: "",
       courseStartDate: "",
       courseEndDate: "",
+      companyName: "",
       jobTitle: "",
       jobTasks: "",
       jobStartDate: "",
       jobEndDate: "",
     };
+
+    this.state = { cv: "" };
   }
 
   handleChange = (e) => {
@@ -30,6 +33,9 @@ class Form extends Component {
 
   onSubmitForm = (e) => {
     e.preventDefault();
+
+    this.setState({ cv: { ...this.state, [e.target.name]: e.target.value } });
+
     this.setState({
       name: "",
       surname: "",
@@ -48,6 +54,23 @@ class Form extends Component {
   };
 
   render() {
+    const {
+      name,
+      surname,
+      email,
+      phone,
+      institute,
+      courseName,
+      courseStartDate,
+      courseEndDate,
+      companyName,
+      jobTitle,
+      jobTasks,
+      jobStartDate,
+      jobEndDate,
+      cv,
+    } = this.state;
+
     return (
       <div>
         <form onSubmit={this.onSubmitForm}>
@@ -59,7 +82,7 @@ class Form extends Component {
                 type="text"
                 name="name"
                 onChange={this.handleChange}
-                value={this.state.name}
+                value={name}
               />
             </div>
             <div>
@@ -68,7 +91,7 @@ class Form extends Component {
                 type="text"
                 name="surname"
                 onChange={this.handleChange}
-                value={this.state.surname}
+                value={surname}
               />
             </div>
             <div>
@@ -77,7 +100,7 @@ class Form extends Component {
                 type="email"
                 name="email"
                 onChange={this.handleChange}
-                value={this.state.email}
+                value={email}
               />
             </div>
             <div>
@@ -86,7 +109,7 @@ class Form extends Component {
                 type="tel"
                 name="phone"
                 onChange={this.handleChange}
-                value={this.state.phone}
+                value={phone}
               />
             </div>
           </fieldset>
@@ -98,7 +121,7 @@ class Form extends Component {
                 type="text"
                 name="institute"
                 onChange={this.handleChange}
-                value={this.state.institute}
+                value={institute}
               />
             </div>
             <div>
@@ -107,7 +130,7 @@ class Form extends Component {
                 type="text"
                 name="courseName"
                 onChange={this.handleChange}
-                value={this.state.courseName}
+                value={courseName}
               />
             </div>
             <div>
@@ -116,7 +139,7 @@ class Form extends Component {
                 type="date"
                 name="courseStartDate"
                 onChange={this.handleChange}
-                value={this.state.courseStartDate}
+                value={courseStartDate}
               />
             </div>
             <div>
@@ -125,7 +148,7 @@ class Form extends Component {
                 type="date"
                 name="courseEndDate"
                 onChange={this.handleChange}
-                value={this.state.courseEndDate}
+                value={courseEndDate}
               />
             </div>
           </fieldset>
@@ -137,7 +160,7 @@ class Form extends Component {
                 type="text"
                 name="companyName"
                 onChange={this.handleChange}
-                value={this.state.companyName}
+                value={companyName}
               />
             </div>
             <div>
@@ -146,16 +169,16 @@ class Form extends Component {
                 type="text"
                 name="jobTitle"
                 onChange={this.handleChange}
-                value={this.state.jobTitle}
+                value={jobTitle}
               />
             </div>
             <div>
               <label>Job Tasks</label>
               <input
-                type="textarea"
+                type="text"
                 name="jobTasks"
                 onChange={this.handleChange}
-                value={this.state.jobTasks}
+                value={jobTasks}
               />
             </div>
             <div>
@@ -164,7 +187,7 @@ class Form extends Component {
                 type="date"
                 name="jobStartDate"
                 onChange={this.handleChange}
-                value={this.state.jobStartDate}
+                value={jobStartDate}
               />
             </div>
             <div>
@@ -173,27 +196,13 @@ class Form extends Component {
                 type="date"
                 name="jobEndDate"
                 onChange={this.handleChange}
-                value={this.state.jobEndDate}
+                value={jobEndDate}
               />
             </div>
           </fieldset>
           <button type="submit">Submit Form</button>
         </form>
-        <Display
-          name={this.state.name}
-          surname={this.state.surname}
-          email={this.state.email}
-          phone={this.state.phone}
-          institute={this.state.institute}
-          courseName={this.state.courseName}
-          courseStartDate={this.state.courseStartDate}
-          courseEndDate={this.state.courseEndDate}
-          companyName={this.state.companyName}
-          jobTitle={this.state.jobTitle}
-          jobTasks={this.state.jobTasks}
-          jobStartDate={this.state.jobStartDate}
-          jobEndDate={this.state.jobEndDate}
-        />
+        <Display cv={cv} />
       </div>
     );
   }
