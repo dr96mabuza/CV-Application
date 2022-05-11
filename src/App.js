@@ -1,15 +1,11 @@
 import React, { Component } from "react";
-import GeneralInformation from "./components/personalDetails";
-import EducationDetails from "./components/education";
-import WorkExperience from "./components/workExperience";
+import Form from "./components/form";
 
 class App extends Component {
   render() {
     return (
       <div>
-        <GeneralInformation />
-        <EducationDetails />
-        <WorkExperience />
+        <Form />
       </div>
     );
   }
