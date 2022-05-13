@@ -2,19 +2,48 @@ import React, { useState, useEffect } from "react";
 import Display from "./display";
 
 function Form() {
+  const [
+    firstName,
+    setFirstName,
+    surname,
+    setSurname,
+    email,
+    setEmail,
+    phone,
+    setPhone,
+    institute,
+    setIntitute,
+    courseName,
+    setCourseName,
+    courseStartDate,
+    setCourseStartDate,
+    courseEndDate,
+    setCourseEndDate,
+    companyName,
+    setCompanyName,
+    jobTitle,
+    setJobTitle,
+    jobStartDate,
+    setJobStartDate,
+    jobEndDate,
+    setJobEndDate,
+  ] = useState("");
+
+  useEffect(() => {});
+
   return (
     <div>
-      <form onSubmit={this.onSubmitForm}>
+      <form>
         <fieldset>
           <legend>Personal Details</legend>
           <div>
             <label>Name</label>
             <input
               type="text"
-              name="name"
+              firstNname="name"
               placeholder="Name"
-              onChange={this.handleChange}
-              value={name}
+              onChange={(e) => setFirstName(e.target.value)}
+              value={firstName}
             />
           </div>
           <div>
@@ -23,7 +52,7 @@ function Form() {
               type="text"
               name="surname"
               placeholder="Surname"
-              onChange={this.handleChange}
+              onChange={(e) => setSurname(e.target.value)}
               value={surname}
             />
           </div>
@@ -33,7 +62,7 @@ function Form() {
               type="email"
               name="email"
               placeholder="Example@email.com"
-              onChange={this.handleChange}
+              onChange={(e) => setEmail(e.target.value)}
               value={email}
             />
           </div>
@@ -43,7 +72,7 @@ function Form() {
               type="tel"
               name="phone"
               placeholder="012 3456 789"
-              onChange={this.handleChange}
+              onChange={(e) => setPhone(e.target.value)}
               value={phone}
             />
           </div>
@@ -59,7 +88,7 @@ function Form() {
               type="text"
               name="institute"
               placeholder="Central Open Source University"
-              onChange={this.handleChange}
+              onChange={(e) => setIntitute(e.target.value)}
               value={institute}
             />
           </div>
@@ -69,7 +98,7 @@ function Form() {
               type="text"
               name="courseName"
               placeholder="Bsc Example"
-              onChange={this.handleChange}
+              onChange={(e) => setCourseName(e.target.value)}
               value={courseName}
             />
           </div>
@@ -78,7 +107,7 @@ function Form() {
             <input
               type="date"
               name="courseStartDate"
-              onChange={this.handleChange}
+              onChange={(e) => setCourseStartDate(e.target.value)}
               value={courseStartDate}
             />
           </div>
@@ -87,7 +116,7 @@ function Form() {
             <input
               type="date"
               name="courseEndDate"
-              onChange={this.handleChange}
+              onChange={(e) => setCourseEndDate(e.target.value)}
               value={courseEndDate}
             />
           </div>
@@ -104,7 +133,7 @@ function Form() {
               type="text"
               name="companyName"
               placeholder="Stock LTD"
-              onChange={this.handleChange}
+              onChange={(e) => setCompanyName(e.target.value)}
               value={companyName}
             />
           </div>
@@ -114,7 +143,7 @@ function Form() {
               type="text"
               name="jobTitle"
               placeholder="General worker"
-              onChange={this.handleChange}
+              onChange={(e) => setJobTitle(e.target.value)}
               value={jobTitle}
             />
           </div>
@@ -123,7 +152,7 @@ function Form() {
             <input
               type="date"
               name="jobStartDate"
-              onChange={this.handleChange}
+              onChange={(e) => setJobStartDate(e.target.value)}
               value={jobStartDate}
             />
           </div>
@@ -132,7 +161,7 @@ function Form() {
             <input
               type="date"
               name="jobEndDate"
-              onChange={this.handleChange}
+              onChange={(e) => setJobEndDate(e.target.value)}
               value={jobEndDate}
             />
           </div>
@@ -140,7 +169,6 @@ function Form() {
 
         <button type="submit">Submit Form</button>
       </form>
-      <Display cv={cv} />
     </div>
   );
 }
