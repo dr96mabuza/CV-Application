@@ -18,6 +18,7 @@ const initialValues = {
 
 function Form() {
   const [values, setValues] = useState(initialValues);
+  const [cv, setCV] = useState("");
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -28,9 +29,16 @@ function Form() {
     });
   };
 
+  const onSubmitForm = (e) => {
+    setCV({
+      ...values,
+      [e.target.name]: e.target.value,
+    });
+  };
+
   return (
     <div>
-      <form>
+      <form onSubmit={onSubmitForm}>
         <fieldset>
           <legend>Personal Details</legend>
           <div>
