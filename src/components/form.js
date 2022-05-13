@@ -1,35 +1,32 @@
 import React, { useState, useEffect } from "react";
 import Display from "./display";
 
-function Form() {
-  const [
-    firstName,
-    setFirstName,
-    surname,
-    setSurname,
-    email,
-    setEmail,
-    phone,
-    setPhone,
-    institute,
-    setIntitute,
-    courseName,
-    setCourseName,
-    courseStartDate,
-    setCourseStartDate,
-    courseEndDate,
-    setCourseEndDate,
-    companyName,
-    setCompanyName,
-    jobTitle,
-    setJobTitle,
-    jobStartDate,
-    setJobStartDate,
-    jobEndDate,
-    setJobEndDate,
-  ] = useState("");
+const initialValues = {
+  firstName: "",
+  surname: "",
+  email: "",
+  phone: "",
+  institute: "",
+  courseName: "",
+  courseStartDate: "",
+  courseEndDate: "",
+  companyName: "",
+  jobTitle: "",
+  jobStartDate: "",
+  jobEndDate: "",
+};
 
-  useEffect(() => {});
+function Form() {
+  const [values, setValues] = useState(initialValues);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+
+    setValues({
+      ...values,
+      [name]: value,
+    });
+  };
 
   return (
     <div>
@@ -42,8 +39,8 @@ function Form() {
               type="text"
               firstNname="name"
               placeholder="Name"
-              onChange={(e) => setFirstName(e.target.value)}
-              value={firstName}
+              onChange={handleChange}
+              value={values.firstName}
             />
           </div>
           <div>
@@ -52,8 +49,8 @@ function Form() {
               type="text"
               name="surname"
               placeholder="Surname"
-              onChange={(e) => setSurname(e.target.value)}
-              value={surname}
+              onChange={handleChange}
+              value={values.surname}
             />
           </div>
           <div>
@@ -62,8 +59,8 @@ function Form() {
               type="email"
               name="email"
               placeholder="Example@email.com"
-              onChange={(e) => setEmail(e.target.value)}
-              value={email}
+              onChange={handleChange}
+              value={values.email}
             />
           </div>
           <div>
@@ -72,8 +69,8 @@ function Form() {
               type="tel"
               name="phone"
               placeholder="012 3456 789"
-              onChange={(e) => setPhone(e.target.value)}
-              value={phone}
+              onChange={handleChange}
+              value={values.phone}
             />
           </div>
         </fieldset>
@@ -88,8 +85,8 @@ function Form() {
               type="text"
               name="institute"
               placeholder="Central Open Source University"
-              onChange={(e) => setIntitute(e.target.value)}
-              value={institute}
+              onChange={handleChange}
+              value={values.institute}
             />
           </div>
           <div>
@@ -98,8 +95,8 @@ function Form() {
               type="text"
               name="courseName"
               placeholder="Bsc Example"
-              onChange={(e) => setCourseName(e.target.value)}
-              value={courseName}
+              onChange={handleChange}
+              value={values.courseName}
             />
           </div>
           <div>
@@ -107,8 +104,8 @@ function Form() {
             <input
               type="date"
               name="courseStartDate"
-              onChange={(e) => setCourseStartDate(e.target.value)}
-              value={courseStartDate}
+              onChange={handleChange}
+              value={values.courseStartDate}
             />
           </div>
           <div>
@@ -116,8 +113,8 @@ function Form() {
             <input
               type="date"
               name="courseEndDate"
-              onChange={(e) => setCourseEndDate(e.target.value)}
-              value={courseEndDate}
+              onChange={handleChange}
+              value={values.courseEndDate}
             />
           </div>
         </fieldset>
@@ -133,8 +130,8 @@ function Form() {
               type="text"
               name="companyName"
               placeholder="Stock LTD"
-              onChange={(e) => setCompanyName(e.target.value)}
-              value={companyName}
+              onChange={handleChange}
+              value={values.companyName}
             />
           </div>
           <div>
@@ -143,8 +140,8 @@ function Form() {
               type="text"
               name="jobTitle"
               placeholder="General worker"
-              onChange={(e) => setJobTitle(e.target.value)}
-              value={jobTitle}
+              onChange={handleChange}
+              value={values.jobTitle}
             />
           </div>
           <div>
@@ -152,8 +149,8 @@ function Form() {
             <input
               type="date"
               name="jobStartDate"
-              onChange={(e) => setJobStartDate(e.target.value)}
-              value={jobStartDate}
+              onChange={handleChange}
+              value={values.jobStartDate}
             />
           </div>
           <div>
@@ -161,8 +158,8 @@ function Form() {
             <input
               type="date"
               name="jobEndDate"
-              onChange={(e) => setJobEndDate(e.target.value)}
-              value={jobEndDate}
+              onChange={handleChange}
+              value={values.jobEndDate}
             />
           </div>
         </fieldset>
