@@ -5,7 +5,7 @@ function Display(props) {
   return (
     <div>
       <h2>Form Results</h2>
-      <div>Name: {cv.name}</div>
+      <div>Name: {cv.firstName}</div>
       <div>Surname: {cv.surname}</div>
       <div>Phone number: {cv.phone}</div>
       <div>Email address: {cv.email}</div>
