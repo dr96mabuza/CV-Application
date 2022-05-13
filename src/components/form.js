@@ -1,88 +1,9 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import Display from "./display";
 
-class Form extends Component {
-  constructor() {
-    super();
-
-    this.state = {
-      name: "",
-      surname: "",
-      email: "",
-      phone: "",
-
-      institute: "",
-      courseName: "",
-      courseStartDate: "",
-      courseEndDate: "",
-
-      companyName: "",
-      jobTitle: "",
-      jobTasks: "",
-      jobStartDate: "",
-      jobEndDate: "",
-
-      cv: "",
-    };
-  }
-
-  handleChange = (e) => {
-    this.setState({
-      ...this.state,
-      [e.target.name]: e.target.value,
-    });
-  };
-
-  onSubmitForm = (e) => {
-    e.preventDefault();
-
-    //save form input values on submit
-    this.setState({
-      cv: { ...this.state, [e.target.name]: e.target.value },
-    });
-
-    //reset form values
-    this.setState({
-      name: "",
-      surname: "",
-      email: "",
-      phone: "",
-
-      institute: "",
-      courseName: "",
-      courseStartDate: "",
-      courseEndDate: "",
-
-      companyName: "",
-      jobTitle: "",
-      jobTasks: "",
-      jobStartDate: "",
-      jobEndDate: "",
-    });
-  };
-
-  render() {
-    const {
-      name,
-      surname,
-      email,
-      phone,
-
-      institute,
-      courseName,
-      courseStartDate,
-      courseEndDate,
-
-      companyName,
-      jobTitle,
-      jobTasks,
-      jobStartDate,
-      jobEndDate,
-
-      cv,
-    } = this.state;
-
-    return (
+function Form() {
+  return (
+    <div>
       <form onSubmit={this.onSubmitForm}>
         <fieldset>
           <legend>Personal Details</legend>
@@ -91,6 +12,7 @@ class Form extends Component {
             <input
               type="text"
               name="name"
+              placeholder="Name"
               onChange={this.handleChange}
               value={name}
             />
@@ -100,6 +22,7 @@ class Form extends Component {
             <input
               type="text"
               name="surname"
+              placeholder="Surname"
               onChange={this.handleChange}
               value={surname}
             />
@@ -109,6 +32,7 @@ class Form extends Component {
             <input
               type="email"
               name="email"
+              placeholder="Example@email.com"
               onChange={this.handleChange}
               value={email}
             />
@@ -118,18 +42,23 @@ class Form extends Component {
             <input
               type="tel"
               name="phone"
+              placeholder="012 3456 789"
               onChange={this.handleChange}
               value={phone}
             />
           </div>
         </fieldset>
         <fieldset>
-          <legend>Education</legend>
+          <legend>
+            Education<small>(Highest Completed Course/Schooling)</small>
+          </legend>
+
           <div>
             <label>Institute</label>
             <input
               type="text"
               name="institute"
+              placeholder="Central Open Source University"
               onChange={this.handleChange}
               value={institute}
             />
@@ -139,6 +68,7 @@ class Form extends Component {
             <input
               type="text"
               name="courseName"
+              placeholder="Bsc Example"
               onChange={this.handleChange}
               value={courseName}
             />
@@ -164,12 +94,16 @@ class Form extends Component {
         </fieldset>
 
         <fieldset>
-          <legend>Employment History</legend>
+          <legend>
+            Employment History<small>(Last place of employment)</small>
+          </legend>
+
           <div>
             <label>companyName</label>
             <input
               type="text"
               name="companyName"
+              placeholder="Stock LTD"
               onChange={this.handleChange}
               value={companyName}
             />
@@ -179,17 +113,9 @@ class Form extends Component {
             <input
               type="text"
               name="jobTitle"
+              placeholder="General worker"
               onChange={this.handleChange}
               value={jobTitle}
-            />
-          </div>
-          <div>
-            <label>Job Tasks</label>
-            <input
-              type="text"
-              name="jobTasks"
-              onChange={this.handleChange}
-              value={jobTasks}
             />
           </div>
           <div>
@@ -211,11 +137,12 @@ class Form extends Component {
             />
           </div>
         </fieldset>
+
         <button type="submit">Submit Form</button>
-        <Display cv={cv} />
       </form>
-    );
-  }
+      <Display cv={cv} />
+    </div>
+  );
 }
 
 export default Form;

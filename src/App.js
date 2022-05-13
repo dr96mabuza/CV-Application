@@ -1,14 +1,8 @@
-import React, { Component } from "react";
+import React from "react";
 import Form from "./components/form";
 
-class App extends Component {
-  render() {
-    return (
-      <div>
-        <Form />
-      </div>
-    );
-  }
+function App() {
+  return <Form />;
 }
 
 export default App;
