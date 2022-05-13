@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Display from "./display";
 
 const initialValues = {
@@ -21,15 +21,15 @@ function Form() {
   const [cv, setCV] = useState("");
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
-
     setValues({
       ...values,
-      [name]: value,
+      [e.target.name]: e.target.value,
     });
   };
 
   const onSubmitForm = (e) => {
+    e.preventDefault();
+
     setCV({
       ...values,
       [e.target.name]: e.target.value,
@@ -45,7 +45,7 @@ function Form() {
             <label>Name</label>
             <input
               type="text"
-              firstNname="name"
+              name="firstName"
               placeholder="Name"
               onChange={handleChange}
               value={values.firstName}
@@ -174,6 +174,7 @@ function Form() {
 
         <button type="submit">Submit Form</button>
       </form>
+      <Display cv={cv} />
     </div>
   );
 }
